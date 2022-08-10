@@ -1,0 +1,62 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="filterGames()" class="mb-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4 align-items-end">
+      <div class="col">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title">
+      </div>
+      <div class="col">
+        <label for="platform" class="form-label">Platform</label>
+        <select class="form-select" id="region" formControlName="platform">
+          <option value="">All Platforms</option>
+          <option value="pc">PC (Windows)</option>
+          <option value="browser">Web Browser</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="genre" class="form-label">Genre</label>
+        <select class="form-select" id="genre" formControlName="genre">
+          <option value="">All Genres</option>
+          <ng-container *ngIf="genres$ | async as genres">
+            <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </div>
+    </div>
+  </form>
+
+  <ng-container *ngIf="games$ | async as games; else: loading">
+    <p class="text-center" *ngIf="games.length === 0">No games found.</p>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4">
+      <div class="col" *ngFor="let game of games">
+        <div class="card game h-100">
+          <div class="card-img-container">
+            <img [src]="game.thumbnail" [alt]="game.title" class="card-img-top">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ game.title }}</h5>
+            <h6 class="card-subtitle text-muted mb-4">{{ game.developer }}</h6>
+            <p class="card-text">{{ game.short_description }}</p>
+          </div>
+          <div class="card-footer">
+            <span class="badge game-info">{{ game.platform }}</span>&nbsp;
+            <span class="badge game-info">{{ game.genre }}</span>
+          </div>
+          <div class="card-footer d-grid">
+            <a target="_blank" [href]="game.game_url" class="btn btn-primary">Play</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <p class="text-center">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Loading...
+    </p>
+  </ng-template>
+</div>

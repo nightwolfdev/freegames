@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+$dark-gray: rgb(33, 37, 41);
+$darker-gray: rgb(23, 25, 28);
+$white: rgb(255, 255, 255);
+
+#header {
+  background-color: $dark-gray;
+}
+
+.game {
+  background: $dark-gray;
+  border-color: $darker-gray;
+
+  &:hover img {
+    filter: brightness(120%);
+    transform: scale(1.25);
+  }
+
+  .card-img-container {
+    overflow: hidden;
+
+    img {
+      transition: transform .5s ease;
+    }
+  }
+
+  .game-info {
+    background: $darker-gray;
+  }
+}
+
+body {
+  background: $darker-gray;
+  color: $white;
+}
