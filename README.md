@@ -1,5 +1,7 @@
 # Free Games
 
+![Free Games App](./src/assets/img/free-games-app.png)
+
 Free Games app using Angular, RxJS, TypeScript, and the Free To Play Games Database API.
 
 ## Getting Started
