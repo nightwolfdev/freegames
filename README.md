@@ -2,7 +2,7 @@
 
 ![Free Games App](./src/assets/img/free-games-app.png)
 
-Free Games app using Angular, RxJS, TypeScript, and the Free To Play Games Database API.
+Search free games to play online by title, platform, and genre.
 
 ## Getting Started
 
@@ -21,6 +21,7 @@ Free Games app using Angular, RxJS, TypeScript, and the Free To Play Games Datab
 
 * [Demo](https://nightwolf.dev/demos/freegames)
 * [Angular](https://angular.io)
+* [Bootstrap](https://getbootstrap.com/)
 * [RxJS](https://rxjs.dev)
 * [TypeScript](https://www.typescriptlang.org)
 * [Free To Play Games Database API](https://www.freetogame.com/api-doc)
